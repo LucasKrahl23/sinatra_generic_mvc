@@ -1,0 +1,8 @@
+<form method="post" action="/<%= entity %>/update/<%= model.id %>"
+
+  <% clazz.columns.each do |c| %>
+    <label for="<%= c.name %>"><%= c.name.capitalize %>:</label>
+    <input type="<%= type(c) %>" id="<%= c.name %>" name="<%= c.name %>" value="<%= model[c.name]%>"/>
+  <br/>
+  <button>Salvar</button>
+</form>

@@ -1,0 +1,19 @@
+<form method="post" action="/<%= entity %>/save"
+
+  <% clazz.columns.each do |c| %>
+    <% next if c.name == "id" %>
+    <label for="<%= c.name %>"><%= c.name.capitalize.gsub(/_/, ' ') %>:</label>
+    <% if c.name.end_with? "_id" %>
+      <select id="<%= c.name %>" name="<%= c.name %>">
+        <option>Selecione</option>
+        <% Kernel.const_get(c.name.gsub(/_id$/, "").camelize.capitalize).all.each do |i| %>
+          <option value="<%= i.id %>"><%= i.label %></option>
+        <% end %>
+      </select>
+    <% else %>
+      <input type="<%= type(c) %>" id="<%= c.name %>" name="<%= c.name %>"/>
+    <% end %>
+    <br/>
+  <% end %>
+  <button>Salvar</button>
+</form>

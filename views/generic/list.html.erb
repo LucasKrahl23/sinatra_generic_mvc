@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <% clazz.columns.each do |c| %>
+      <th><%= c.name %></th>
+    <% end %>
+    <th></th>
+  </tr>
+  <% list.each do |model| %>
+    <tr>
+      <% clazz.columns.each do |c| %>
+        <td><%= model[c.name] %></td>
+      <% end %>
+      <td>
+        <a href="/<%= entity %>/<%= model.id %>/edit">Editar</a>
+        <a href="/<%= entity %>/<%= model.id %>/delete">Remover</a>
+      </td>
+    </tr>
+  <% end %>
+</table>

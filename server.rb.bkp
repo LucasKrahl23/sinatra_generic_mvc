@@ -1,0 +1,55 @@
+# sinatra1/server.rb
+
+require 'sinatra'
+
+get "/" do
+  erb :index
+end
+get '/2' do
+  erb :pagina2
+end
+post "/save" do
+  erb :index, :locals => {:curso => "SI"}
+end
+# Console
+# c:
+# cd \workspaceruby\sinatra1
+# ruby server.rb
+#
+# Browser
+# localhost:4567 ou 127.0.0.1:4567
+#
+# Explorer
+# criar subpasta views
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=begin
+get "/" do
+	erb :index
+end
+
+post "/login" do
+	"Login efetuado com #{params[:login]} e senha #{params[:password]}"
+end
+=end

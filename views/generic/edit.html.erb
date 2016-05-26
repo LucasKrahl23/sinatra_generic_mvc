@@ -1,0 +1,20 @@
+<form method="post" action="/<%= entity %>/update/<%= model.id %>"
+
+  <% clazz.columns.each do |c| %>
+    <% next if c.name == "id" %>
+    <label for="<%= c.name %>"><%= c.name.capitalize %>:</label>
+    <% if c.name.end_with? "_id" %>
+      <select id="<%= c.name %>" name="<%= c.name %>">
+        <option>Selecione</option>
+        <% Kernel.const_get(c.name.gsub(/_id$/, "").camelize.capitalize).all.each do |i| %>
+          <option value="<%= i.id %>" <%= i.id == model[c.name] ? "selected='selected'" : "" %>><%= i.label %></option>
+        <% end %>
+      </select>
+    <% else %>
+      <input type="<%= type(c) %>" id="<%= c.name %>" name="<%= c.name %>" value="<%= model[c.name]%>"/>
+    <% end %>
+
+    <br/>
+  <% end %>
+  <button>Salvar</button>
+</form>

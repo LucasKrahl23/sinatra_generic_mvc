@@ -1,0 +1,16 @@
+<html>
+<body>
+<div style="background: red">
+	aqui vai um menu
+</div>
+<h1> Cadastro <%= params["nome"] %> </h1>
+<h2> <%= curso rescue "" %>
+<form method="post" action="save">
+	<input type="text" name="nome"
+		placeholder="Nome"/>
+	<br/>
+	<input type="submit"
+		value="Salvar"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# na pasta do projeto
+# cria uma pasta chamada
+# "config"
+# na pasta config salvar o
+# arquivo "database.yml" 
+# com o seguinte conteudo:
+#
+adapter: postgresql
+encoding: utf-8
+username: postgres
+password: postgres
+database: banco_sinatra
+port: 5432 # ou 5433

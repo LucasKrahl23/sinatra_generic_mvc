@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title><%= title || "Meu primeiro template" %></title>
+</head>
+<body>
+<div style="border: 1px solid black">
+	<a href="/">Home</a>
+  <% $controllers.each do |c, clazz| %>
+  	| <a href="/<%= c %>"><%= c.capitalize %></a>
+  <% end %>
+  <% if defined? entity and entity %>
+    <br/>
+  	<a href="/<%= entity %>/new">Novo</a>
+  	| <a href="/<%= entity %>">Listar</a>
+  <% end %>
+</div>
+<% [:error, :notice].each do |k| %>
+  <% if flash[k] %>
+    <div class="<%= k %>"><%= flash[k] %></div>
+  <% end %>
+<% end %>
+<%= yield %>
+<div style="border: 1px solid black">
+	rodape
+</div>
+</body>
+</html>
